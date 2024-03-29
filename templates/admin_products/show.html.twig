@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Товар{% endblock %}
+
+{% block body %}
+    <h1>Товар</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <th>Название</th>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <th>Описание</th>
+                <td>{{ product.description }}</td>
+            </tr>
+            <tr>
+                <th>Цена</th>
+                <td>{{ product.price }}</td>
+            </tr>
+            <tr>
+                <th>Изображение</th>
+                <td>{{ product.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('app_admin_products_index') }}">к списку</a>
+
+    <a class="btn btn-success" href="{{ path('app_admin_products_edit', {'id': product.id}) }}">редактировать</a>
+
+    {{ include('admin_products/_delete_form.html.twig') }}
+{% endblock %}

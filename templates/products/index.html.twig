@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Товары{% endblock %}
+
+{% block body %}
+<div class="container d-flex flex-wrap my-3">
+  <form>
+    <button type="button submit" name="filter" value="all" class="btn btn-outline-dark m-3">Все</button>
+  </form>
+  {% for category in categories %}
+    <form>
+      <button type="button submit" name="filter" value={{category.id}} class="btn btn-outline-dark m-3">{{category.name}}</button>
+    </form>
+  {% endfor %}
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for product in products %}
+        <div class="col-sm-6 col-md-4 my-2">
+          <div class="card text-white" style="background-color: #292929" >
+            <div class="card-header" style="border-bottom: 1px solid white">{{ product.category }}</div>
+            <div class="card-body">
+                <img src={{ product.image }} alt={{ product.name }} class="w-100"/>
+                <h4 class="card-title my-3">{{ product.name }}</h4>
+                <p class="card-text">цена : {{ product.price }} р.</p>
+                <p class="card-text">{{ product.description }}</p>
+                <a href="{{path('app_cart_add_Products', {'id' : product.id} )}}">
+                  <button class="btn btn-success">В корзину</button>
+                </a>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

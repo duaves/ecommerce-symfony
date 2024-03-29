@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать пользователя{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1>Редактировать пользователя</h1>
+
+        {{ include('admin_user/_form.html.twig', {'button_label': 'Редактировать'}) }}
+
+        <a class="btn btn-primary" href="{{ path('app_admin_user_index') }}">к списку</a>
+
+        {{ include('admin_user/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

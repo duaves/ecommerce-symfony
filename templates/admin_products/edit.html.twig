@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Редактировать товар{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+    <h1>Редактировать товар</h1>
+        {{ include('admin_products/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a class="btn btn-primary" href="{{ path('app_admin_products_index') }}">к списку</a>
+
+        {{ include('admin_products/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

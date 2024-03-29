@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый пользователь{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1>Создать нового пользователя</h1>
+        
+        {{ include('admin_user/_form.html.twig') }}
+
+        <a class="btn btn-primary" href="{{ path('app_admin_user_index') }}">к списку</a>
+    </div>
+{% endblock %}

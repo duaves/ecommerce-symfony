@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Новый товар{% endblock %}
+
+{% block body %}
+    <div class="container my-5">
+        <h1>Добавить новый товар</h1>
+
+        {{ include('admin_products/_form.html.twig') }}
+
+        <a class="btn btn-primary" href="{{ path('app_admin_products_index') }}">к списку</a>
+    </div>
+{% endblock %}
